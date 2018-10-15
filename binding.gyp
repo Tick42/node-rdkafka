@@ -69,8 +69,8 @@
                 ]
               }
             },
-            'msvs_version': '2015',
-            'msbuild_toolset': 'v140',
+            'msvs_version': '2017',
+            'msbuild_toolset': 'v141',
             'include_dirs': [
               'deps/include'
             ]
