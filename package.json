@@ -6,6 +6,8 @@
   "scripts": {
     "configure": "node-gyp configure",
     "build": "node-gyp build",
+    "pre-gyp:reveal" : "node-pre-gyp reveal",
+    "pre-gyp:pack" : "node-pre-gyp package",
     "test": "make test",
     "install": "node-pre-gyp install --fallback-to-build"
   },
