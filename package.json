@@ -6,8 +6,8 @@
   "scripts": {
     "configure": "node-gyp configure",
     "build": "node-gyp build",
-    "pre-gyp:reveal" : "node-pre-gyp reveal",
-    "pre-gyp:pack" : "node-pre-gyp package",
+    "pre-gyp:reveal": "node-pre-gyp reveal",
+    "pre-gyp:pack": "node-pre-gyp package",
     "test": "make test",
     "install": "node-pre-gyp install --fallback-to-build"
   },
@@ -46,7 +46,7 @@
     "module_name": "node-librdkafka",
     "module_path": "./build/{configuration}",
     "host": "https://repo.tick42.com",
-    "remote_path": "pre-gyp/tick42/{module_name}/{version}/{configuration}/",
+    "remote_path": "tick42-pre-gyp-local/tick42/{module_name}/{version}/{configuration}/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz"
   },
   "engines": {
