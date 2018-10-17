@@ -17,7 +17,8 @@
         'src/kafka-consumer.cc',
         'src/producer.cc',
         'src/topic.cc',
-        'src/workers.cc'
+        'src/workers.cc',
+        'src/admin.cc'
       ],
       "include_dirs": [
         "<!(node -e \"require('nan')\")",
@@ -65,6 +66,7 @@
                   'deps/precompiled/'
                 ],
                 'AdditionalIncludeDirectories': [
+                  'deps/librdkafka/src',
                   'deps/librdkafka/src-cpp'
                 ]
               }
@@ -83,6 +85,7 @@
                     "deps/librdkafka.gyp:librdkafka"
                   ],
                   "include_dirs": [
+                    "deps/librdkafka/src",
                     "deps/librdkafka/src-cpp"
                   ],
                   'conditions': [
