@@ -13,3 +13,5 @@ lib/binding/
 .DS_Store
 
 package-lock.json
+
+*.tgz
