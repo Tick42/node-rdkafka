@@ -4,6 +4,7 @@
   "description": "Node.js bindings for librdkafka",
   "main": "lib/index.js",
   "scripts": {
+    "preinstall": "npm install node-pre-gyp",
     "configure": "node-gyp configure",
     "build": "node-gyp build",
     "pre-gyp:reveal": "node-pre-gyp reveal",
@@ -38,13 +39,12 @@
     "node-gyp": "3.x"
   },
   "dependencies": {
-    "bindings": "1.x",
     "nan": "2.x",
     "node-pre-gyp": "^0.11.0"
   },
   "binary": {
     "module_name": "node-librdkafka",
-    "module_path": "./build/{configuration}",
+    "module_path": "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
     "host": "https://repo.tick42.com",
     "remote_path": "tick42-pre-gyp-local/tick42/{module_name}/{version}/{configuration}/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz"

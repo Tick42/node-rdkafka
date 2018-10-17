@@ -150,6 +150,34 @@
           }
         ]
       ]
+    },
+    {
+      "target_name": "copy-module",
+      "dependencies": [ "<(module_name)" ],
+      "copies": [
+        {
+          "files": [ "<(PRODUCT_DIR)/<(module_name).node"],
+          "destination": "<(module_path)"
+        }
+      ]
+    },
+    {
+      "target_name": "copy-dlls",
+      "dependencies": [ "<(module_name)" ],
+      "conditions": [
+        ['OS=="win"', {
+          "copies": [{
+            "destination": "<(module_path)",
+            "files": [
+               "<(PRODUCT_DIR)/librdkafka.dll",
+               "<(PRODUCT_DIR)/librdkafkacpp.dll",
+               "<(PRODUCT_DIR)/zlib.dll",
+               "<(PRODUCT_DIR)/msvcp120.dll",
+               "<(PRODUCT_DIR)/msvcr120.dll"
+            ]
+          }]
+	}]
+      ]
     }
   ]
 }
