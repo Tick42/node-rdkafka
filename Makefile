@@ -1,4 +1,4 @@
-NODE-GYP ?= node_modules/.bin/node-gyp
+NODE-GYP ?= node_modules/.bin/node-pre-gyp
 
 # Sick of changing this. Do a check and try to use python 2 if it doesn't work
 PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))

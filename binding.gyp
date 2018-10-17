@@ -6,7 +6,7 @@
   },
   "targets": [
     {
-      "target_name": "node-librdkafka",
+      "target_name": "<(module_name)",
       'sources': [
         'src/binding.cc',
         'src/callbacks.cc',
@@ -92,7 +92,7 @@
                         "libraries": [
                           "../build/deps/librdkafka.so",
                           "../build/deps/librdkafka++.so",
-                          "-Wl,-rpath='$$ORIGIN/../deps'",
+                          "-Wl,-rpath='$$ORIGIN/'",
                         ],
                       }
                     ],
@@ -153,6 +153,7 @@
     },
     {
       "target_name": "copy-module",
+      "type": "none",
       "dependencies": [ "<(module_name)" ],
       "copies": [
         {
@@ -162,21 +163,41 @@
       ]
     },
     {
-      "target_name": "copy-dlls",
+      "target_name": "copy-libs",
+      "type": "none",
       "dependencies": [ "<(module_name)" ],
       "conditions": [
         ['OS=="win"', {
           "copies": [{
             "destination": "<(module_path)",
             "files": [
-               "<(PRODUCT_DIR)/librdkafka.dll",
-               "<(PRODUCT_DIR)/librdkafkacpp.dll",
-               "<(PRODUCT_DIR)/zlib.dll",
-               "<(PRODUCT_DIR)/msvcp120.dll",
-               "<(PRODUCT_DIR)/msvcr120.dll"
+              "<(PRODUCT_DIR)/librdkafka.dll",
+              "<(PRODUCT_DIR)/librdkafkacpp.dll",
+              "<(PRODUCT_DIR)/zlib.dll",
+              "<(PRODUCT_DIR)/msvcp120.dll",
+              "<(PRODUCT_DIR)/msvcr120.dll"
             ]
           }]
-	}]
+        }],
+        [ "<(BUILD_LIBRDKAFKA)==1", {
+          "copies": [{
+            "destination": "<(module_path)",
+            "conditions": [
+              ['OS=="linux"', {
+                "files": [
+                    "build/deps/librdkafka.so.1",
+                    "build/deps/librdkafka++.so.1"
+                  ]
+              }],
+              ['OS=="mac"', {
+                "files": [
+                    "build/deps/librdkafka.dylib",
+                    "build/deps/librdkafka++.dylib"
+                  ]
+              }]
+            ]
+          }]
+        }]
       ]
     }
   ]

@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "preinstall": "npm install node-pre-gyp",
-    "configure": "node-gyp configure",
-    "build": "node-gyp build",
+    "configure": "node-pre-gyp configure",
+    "build": "node-pre-gyp build",
     "pre-gyp:reveal": "node-pre-gyp reveal",
     "pre-gyp:pack": "node-pre-gyp package",
     "test": "make test",
