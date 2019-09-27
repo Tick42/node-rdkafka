@@ -8,8 +8,11 @@ docs
 deps/*
 !deps/*.gyp
 !deps/windows-install.*
+lib/binding/
 
 .DS_Store
 
 package-lock.json
 .vscode
+.idea/
+*.tgz
